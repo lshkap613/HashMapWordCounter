@@ -58,35 +58,14 @@ public class HashTable4<K, V> implements MapInterface<K, V> {
 
 		}
 	}
-		
+
+
 	
-	
-	/**
-	 * Get method using iterator written by chatGPT. (The oldGet method was
-	 * written without AI)
-	 * Gets a value based on the key
+	/*
+	 * get bucket at specified index
 	 */
-	public V getUsingIterator(K k) {    
-	    // throw exception if try to get null key
-	    if (k == null) {
-	        throw new IllegalArgumentException("No null keys");
-	    }
-	    	    
-	    // Iterate through the entries using the iterator
-	    Iterator<MapEntry<K, V>> iterator = iterator();
-	    while (iterator.hasNext()) {
-	        MapEntry<K, V> entry = iterator.next();
-	        if (entry != null && entry.key.equals(k)) {
-	            return entry.value; // Return the value if the key is found
-	        }
-	    }
-	    
-	    // If key is not found, return null
-	    return null;
-	}
-	
-	public MapEntry<K, V> getBucket(int bucket) {
-		return map.get(bucket);
+	public MapEntry<K, V> getBucket(int bucketIndex) {
+		return map.get(bucketIndex);
 	}
 	
 	
